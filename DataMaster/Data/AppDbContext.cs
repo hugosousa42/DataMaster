@@ -10,5 +10,14 @@ namespace DataMaster.Data
         }
 
         public DbSet<Product> Product { get; set; }
+        public DbSet<Customer> Customer { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Customer>().ToTable("Customer", "Sales"); 
+            
+        }
     }
 }
